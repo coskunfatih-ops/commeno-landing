@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commeno — YouTube Comment Management for Creators</title>
+  <meta name="description" content="Commeno helps YouTube content creators manage comments, track conversations, and reply faster — all in one focused workspace." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0f0f13;
+      color: #e8e8f0;
+      line-height: 1.6;
+    }
+
+    a { color: #a78bfa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header ── */
+    header {
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e1e2e;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: #a78bfa; }
+
+    nav a {
+      color: #a0a0b8;
+      margin-left: 28px;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: #e8e8f0; text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 760px;
+      margin: 100px auto 80px;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #1e1030;
+      color: #a78bfa;
+      border: 1px solid #3b2d6e;
+      padding: 4px 14px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #9090aa;
+      max-width: 540px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #7c3aed;
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.15s;
+    }
+
+    .btn-primary:hover { background: #6d28d9; text-decoration: none; }
+
+    .btn-secondary {
+      background: #1e1e2e;
+      color: #c8c8e0;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 15px;
+      border: 1px solid #2e2e44;
+      transition: background 0.15s;
+    }
+
+    .btn-secondary:hover { background: #28283e; text-decoration: none; }
+
+    /* ── Features ── */
+    .features {
+      max-width: 1000px;
+      margin: 0 auto 100px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #14141e;
+      border: 1px solid #1e1e2e;
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #7070888;
+      line-height: 1.6;
+      color: #808099;
+    }
+
+    /* ── Data section ── */
+    .data-section {
+      max-width: 760px;
+      margin: 0 auto 100px;
+      padding: 0 24px;
+    }
+
+    .data-section h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .data-list {
+      background: #14141e;
+      border: 1px solid #1e1e2e;
+      border-radius: 14px;
+      padding: 28px 32px;
+    }
+
+    .data-list ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .data-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: #9090aa;
+    }
+
+    .data-list li::before {
+      content: "✓";
+      color: #a78bfa;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #1e1e2e;
+      padding: 32px 24px;
+      text-align: center;
+      color: #50506a;
+      font-size: 13px;
+    }
+
+    footer a { color: #70709a; }
+    footer a:hover { color: #a78bfa; }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div style="max-width:1100px;margin:0 auto;">
+    <header>
+      <div class="logo">comme<span>no</span></div>
+      <nav>
+        <a href="mailto:hello@commeno.app">Contact</a>
+        <a href="/privacy-policy">Privacy</a>
+        <a href="/terms-of-service">Terms</a>
+      </nav>
+    </header>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Built for YouTube Creators</div>
+    <h1>Your YouTube comments,<br /><em>finally under control.</em></h1>
+    <p>
+      Commeno is a focused workspace for content creators to read, organize,
+      and reply to YouTube comments — without getting lost in YouTube Studio.
+    </p>
+    <div class="cta-group">
+      <a href="mailto:hello@commeno.app" class="btn-primary">Request Early Access</a>
+      <a href="mailto:support@commeno.app" class="btn-secondary">Get in Touch</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3>Unified Comment Workspace</h3>
+      <p>See all your YouTube comments in one clean list. Filter by status, mark for later, and never lose a conversation again.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Reply Faster</h3>
+      <p>Draft replies, save templates for common answers, and respond to your community in a fraction of the time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Secure by Design</h3>
+      <p>Your YouTube credentials are encrypted at rest. Commeno never stores your password and never posts without your explicit approval.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📺</div>
+      <h3>Live Chat Support</h3>
+      <p>Monitor and manage live stream chat alongside your regular comments, in the same workspace.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔖</div>
+      <h3>Save for Later</h3>
+      <p>Mark comments you want to revisit. Your queue is synced and available whenever you're ready.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Quota-Aware Sync</h3>
+      <p>Commeno respects YouTube API limits. Sync runs in the background, so your quota is never wasted.</p>
+    </div>
+  </section>
+
+  <section class="data-section">
+    <h2>What data does Commeno access?</h2>
+    <div class="data-list">
+      <ul>
+        <li>Your YouTube channel ID and public profile (name, profile picture) — to identify your account.</li>
+        <li>Your YouTube videos, comments, and replies — to display them in the Commeno workspace.</li>
+        <li>Your live stream chat messages — to show them alongside regular comments.</li>
+        <li>OAuth access and refresh tokens — stored encrypted on our servers, used only to communicate with the YouTube API on your behalf.</li>
+        <li>Reply drafts and sent reply records — stored in our database so you can track what you've responded to.</li>
+        <li>Your "Save for Later" marks and sync history — to power workspace features across sessions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms-of-service">Terms of Service</a>
+      <a href="mailto:support@commeno.app">support@commeno.app</a>
+      <a href="mailto:hello@commeno.app">hello@commeno.app</a>
+    </div>
+    <div>&copy; 2026 Commeno. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
