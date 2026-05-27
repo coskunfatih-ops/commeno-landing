@@ -142,9 +142,7 @@
     <h2>3. Google API Scopes We Request</h2>
     <p>Commeno requests the following Google OAuth 2.0 scopes, each for a specific purpose:</p>
     <ul>
-      <li><strong style="color:#c8c8e0;">youtube.readonly</strong> — to read your videos, comments, and channel information.</li>
-      <li><strong style="color:#c8c8e0;">youtube.force-ssl</strong> — to post replies to YouTube comments on your behalf (only with your explicit approval).</li>
-      <li><strong style="color:#c8c8e0;">youtube</strong> — to access YouTube live stream chat data.</li>
+      <li><strong style="color:#c8c8e0;">youtube.force-ssl</strong> — to read your videos, comments, channel information, and live stream chat data; and to post and edit replies to YouTube comments on your behalf (only with your explicit approval).</li>
       <li><strong style="color:#c8c8e0;">openid, email, profile</strong> — to identify your Google account and display your name and profile picture.</li>
     </ul>
     <p>
@@ -173,7 +171,7 @@
     </p>
     <ul>
       <li><strong style="color:#c8c8e0;">YouTube / Google:</strong> We send your approved replies to YouTube via the YouTube Data API. This is the core function of the service.</li>
-      <li><strong style="color:#c8c8e0;">Infrastructure providers:</strong> We use Railway for hosting and Supabase (PostgreSQL) for the database. These providers process data solely to operate the infrastructure and are bound by their own privacy and security policies. No YouTube content is shared with them beyond what is stored in the database to operate Commeno.</li>
+      <li><strong style="color:#c8c8e0;">Infrastructure providers:</strong> We use Railway for hosting and database infrastructure. Railway processes data solely to operate the infrastructure and is bound by its own privacy and security policies. No YouTube content is shared with them beyond what is stored in the database to operate Commeno.</li>
       <li><strong style="color:#c8c8e0;">Legal requirements:</strong> We may disclose data if required by law or to protect the rights, property, or safety of Commeno, our users, or others.</li>
     </ul>
 
