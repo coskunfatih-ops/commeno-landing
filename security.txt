@@ -1,0 +1,3 @@
+Contact: mailto:security@commeno.app
+Expires: 2027-06-25T00:00:00.000Z
+Preferred-Languages: tr, en
