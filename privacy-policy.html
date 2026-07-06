@@ -137,11 +137,6 @@
       <li>Sync history, quota usage logs, and event logs — used to operate, debug, and monitor the service.</li>
     </ul>
 
-    <!-- <p><strong style="color:#c8c8e0;">Account data:</strong></p>
-    <ul>
-      <li>Your email address and a hashed password (bcrypt), used to authenticate your Commeno account.</li>
-    </ul> -->
-
     <h2>3. Google API Scopes We Request</h2>
     <p>Commeno requests the following Google OAuth 2.0 scopes, each for a specific purpose:</p>
     <ul>
@@ -159,7 +154,7 @@
     <p>We use your data exclusively to:</p>
     <ul>
       <li>Display your YouTube comments, videos, and live chat in the Commeno workspace.</li>
-      <li>Sync your YouTube content periodically so your workspace stays up to date.</li>
+      <li>Sync your YouTube content when you use Commeno (on demand) so your workspace stays up to date.</li>
       <li>Post replies to YouTube on your behalf — only when you explicitly approve and send a reply.</li>
       <li>Save your reply drafts, "Save for Later" marks, and other workspace state across sessions.</li>
       <li>Operate, monitor, debug, and improve the Commeno service.</li>
@@ -199,7 +194,7 @@
     <h2>8. Data Security</h2>
     <ul>
       <li>OAuth access tokens and refresh tokens are encrypted at rest using AES-256 encryption.</li>
-      <li>User passwords are hashed using bcrypt and are never stored in plaintext.</li>
+      <li>Commeno uses Google sign-in (OAuth 2.0); we do not collect or store user passwords.</li>
       <li>All data transmission occurs over HTTPS (TLS).</li>
       <li>Access to the production database is restricted to authorized infrastructure only.</li>
     </ul>
